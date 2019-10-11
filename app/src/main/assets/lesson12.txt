@@ -1,0 +1,28 @@
+1.加载方式
+    Fragment的静态加载
+	1. 定义Fragment的子类, 并在onCreateView()中加载一个布局文件
+          public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+                return View;
+            }
+	2. 在布局文件中通过<fragment>指定指定自定义Fragment
+	3. 我们的Activity必须继承于FragmentActivity
+   Fragment的动态加载
+   	1. 定义Fragment的子类, 并在onCreateView()中加载一个布局文件
+   	2. 我们的Activity必须继承于FragmentActivity
+   	3. 在代码中, 动态创建Fragment对象, 并添加到指定的ViewGroup中 （add，replace，remove）
+    // 创建Fragment对象
+    MyFragment1 fragment1 = new MyFragment1();
+    // 得到FragmentManager
+    FragmentManager manager = getSupportFragmentManager();
+    // 得到FragmentTransacation
+    FragmentTransaction transaction = manager.beginTransaction();
+    // 添加Fragment对象并提交
+    transaction.add(R.id.ll_main_container, fragment1).commit();
+2.生命周期
+    生命周期方法
+	添加Fragment对象显示  onAttach()->onCreate()->onCreateView()->onActivityCreated()->onStart()->onResume()
+	home到桌面   onPause()->onStop()
+	回到应用    onStart()->onResume()
+	replace为其它Fragment  onPause()->onStop()->onDestroyView()
+	返回到本身的Fragment   onCreateView()->onActivityCreated()->onStart()->onResume()
+	退出应用 onPause()->onStop()->onDestroyView()->onDestroy()->onDetach()

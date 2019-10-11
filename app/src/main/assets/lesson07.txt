@@ -1,0 +1,44 @@
+1. Service的理解:
+    Service是一个应用组件, 它用来在后台完成一个时间跨度比较大的工作且没有关联任何界面
+
+    1). 区别Service与Activity?
+        1. Activity:    
+        Activity对应一个界面
+        应用退出, Activity对象就会死亡
+        应用再次进入, 启动的Activity对象是重新创建的
+        2. Service
+        不与任何界面关联
+        应用退出, Service仍在运行
+        应用再次进入, 启动的Service还是前面运行的Service对象
+    2). 区别Service与Thread?
+        1. Service
+        用来在后台完成一个时间跨度比较大的工作的应用组件
+        Service的生命周期方法运行在主线程, 如果Service想做持续时间比较长的工作, 需要启动一个分线程(Thread)
+        应用退出: Service不会停止
+        应用再次进入: 可以与正在运行的Service进行通信
+        2. Thread
+        用来开启一个分线程的类, 做一个长时间的工作
+        Thread对象的run()在分线程执行
+        应用退出: Thread不会停止,
+        应用再次进入: 不能再控制前面启动的Thread对象
+2. Service的特点
+    Service在后台运行，不用与用户进行交互
+    即使应用退出, 服务也不会停止.
+    在默认情况下，Service运行在应用程序进程的主线程(UI线程)中，如果需要在Service中处理一些网络连接等耗时的操作，那么应该将这些任务放在分线程中处理，避免阻塞用户界面
+
+3. Service的启动与停止
+    方式一 :  一般启动与停止
+    context.startService(Intent intent)
+    context.stopService(Intent intent)
+    方式二 : 绑定启动与解绑
+    context.bindService(Intent intent, ServiceConnection connection)
+    context.unbindService(ServiceConnection connection)
+
+4. Service的生命周期
+    一般：startService() —> onCreate() —> onStartCommand()     stopService() —> onDestroy()
+    绑定：bindService() —> onCreate() —> onBind()    unbindService() —> onUnbind() —> onDestroy()
+5. AIDL理解
+    AIDL (Android Interface Definition Language)
+    用于生成可以在Android设备上两个进程之间进行进程间通信(interprocess communication, IPC)的代码。
+    如果在一个进程中（例如Activity）要调用另一个进程中（例如Service）对象的操作，就可以使用AIDL生成可序列化的参数。
+

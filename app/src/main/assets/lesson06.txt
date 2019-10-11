@@ -1,0 +1,44 @@
+1. 什么是事件机制
+    Android是如何响应对其中的某个视图的触控操作呢?  --->MotionEvent
+    Android是如何响应对手机的按键的操作呢? ---->KeyEvent
+2. 屏幕触控(MotionEvent)机制
+    1). 事件类型:down move  up
+    2). 事件发生的顺序: down--->move-->move-->move-->....-->up
+3. MotionEvent API：
+    1）MotionEvent : 触屏事件
+        int ACTION_DOWN=0 : 代表down
+        Int ACTION_MOVE=2 ; 代表move
+        Int ACTION_UP=1 : 代表up
+        getAction() :  得到事件类型值
+        getX() : 得到事件发生的x轴坐标(相对于当前视图)
+        getRawX() :得到事件发生的x轴坐标(相对于屏幕左顶点)
+        getY() : 得到事件发生的y轴坐标(相对于当前视图)
+        getRawY() :得到事件发生的y轴坐标(相对于屏幕左顶点)
+    2） Activity
+        boolean dispatchTouchEvent(MotionEvent event) : 分发事件
+        boolean onTouchEvent(MotionEvent event) : 处理事件的回调
+    3） View
+        boolean dispatchTouchEvent(MotionEvent event) : 分发事件
+        boolean onTouchEvent(MotionEvent event) : 处理事件的回调方法
+        void setOnTouchListener(OnTouchListener l) : 设置事件监听器
+        void setOnClickListener(OnClickListener l) : 设置点击监听
+        void setOnLongClickListener(OnLongClickListener l) : 设置长按监听
+        void setOnCreateContextMenuListener(OnCreateContextMenuListener l) : 用于创建菜单
+    4） ViewGroup
+        boolean dispatchTouchEvent(MotionEvent ev) : 分发事件
+        boolean onInterceptTouchEvent(MotionEvent ev) : 拦截事件的回调方法
+4. 按键操作
+    1).操作的基本类型  down:手指按下   up:手指从按键上离开
+    2).按键操作的顺序:  downdowndown…--->up
+5. KeyEvent API
+      1) KeyEvent
+      int ACTION_DOWN = 0  : 标识down的常量
+      int ACTION_UP = 1 : 标识up的常量
+      int getAction() : 得到事件类型
+      int getKeyCode() : 得到按键的keycode(唯一标识)
+      startTracking() : 追踪事件, 用于长按监听
+      2) Activity
+      boolean dispatchKeyEvent(KeyEvent event) : 分发事件
+      boolean onKeyDown(int keyCode, KeyEvent event) : 按下按键的回调
+      boolean onKeyUp(int keyCode, KeyEvent event) : 松开按键的回调
+      boolean onKeyLongPress(int keyCode, KeyEvent event) : 长按按键的回调

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mystudydemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".activitys.Lesson03Activity">
+
+        </activity>
+        <activity android:name=".activitys.Lesson12Activity" />
+        <activity android:name=".activitys.Lesson10Activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activitys.Lesson06Activity" />
+
+        <service
+            android:name=".services.Lesson07Service"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".activitys.Lesson07Activity" />
+        <activity android:name=".activitys.Lesson02Activity" />
+        <activity android:name=".activitys.Lesson04Activity" >
+
+        </activity>
+        <activity android:name=".activitys.Lesson01Activity" />
+        <activity android:name=".activitys.SplashActivity" />
+        <activity
+            android:name=".activitys.MainActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+    </application>
+
+</manifest>

@@ -7,80 +7,115 @@
     android:orientation="vertical"
     tools:context=".activitys.Lesson10Activity">
 
-    <GridLayout
+    <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2">
+        app:columnCount="2">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:onClick="scale_code"
-            android:text="scale_code" />
+            android:text="scale_code"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:onClick="scale_xml"
-            android:text="scale_xml" />
+            android:text="scale_xml"
+            app:layout_columnWeight="1" />
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
+            android:text="alpha_code"
+            android:onClick="alpha_code"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
+            android:text="alpha_xml"
+            android:onClick="alpha_xml"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
+            android:text="rotate_code"
+            android:onClick="rotate_code"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
+            android:text="rotate_xml"
+            android:onClick="rotate_xml"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
+            android:text="translate_code"
+            android:onClick="translate_code"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
+            android:text="translate_xml"
+            android:onClick="translate_xml"
+            app:layout_columnWeight="1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Button" />
-    </GridLayout>
+            android:text="复合动画_code"
+            android:onClick="set_code"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="复合动画_xml"
+            android:onClick="set_xml"
+            app:layout_columnWeight="1" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="drawable动画_开启"
+            android:onClick="drawable_start"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="drawable动画_停止"
+            android:onClick="drawable_stop"
+            app:layout_columnWeight="1" />
+    </android.support.v7.widget.GridLayout>
 
     <ImageView
-        android:id="@+id/iv_lesson10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/atguigu"
-        android:layout_gravity="center_horizontal" />
+    android:id="@+id/iv_lesson10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:src="@drawable/atguigu" />
 
     <TextView
         android:id="@+id/tv_lesson10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/iv_drawable"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/drawable_test" />
 
 </LinearLayout>

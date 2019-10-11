@@ -137,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent); break;
                     case 7: intent=new Intent(MainActivity.this,Lesson07Activity.class);
                         startActivity(intent); break;
+                    case 10: intent=new Intent(MainActivity.this,Lesson10Activity.class);
+                        startActivity(intent); break;
                     case 12: intent=new Intent(MainActivity.this,Lesson12Activity.class);
                         startActivity(intent); break;
                     default:
